@@ -3,11 +3,11 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"github.com/deanxv/yescaptcha-go/req"
+	"github.com/deanxv/yescaptcha-go/res"
+	"github.com/deanxv/yescaptcha-go/url"
 	"io"
 	"net/http"
-	"yescaptcha/req"
-	"yescaptcha/res"
-	"yescaptcha/url"
 )
 
 type Client struct {

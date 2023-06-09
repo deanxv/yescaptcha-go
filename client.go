@@ -1,4 +1,4 @@
-package main
+package yescaptcha
 
 import (
 	"bytes"
@@ -38,6 +38,7 @@ func (c *Client) GetBalance() (getBalanceResponse res.GetBalanceResponse, err er
 }
 
 // 创建识别任务-ImageToTextTask : 图片不定长英文数字
+// refs: https://yescaptcha.atlassian.net/wiki/spaces/YESCAPTCHA/pages/164300/ImageToTextTask
 func (c *Client) CreateImageToText(task *req.ImageToTextTaskRequest) (createTaskResponse res.CreateTaskResponse, err error) {
 	resBytes, err := c.Post(c.BaseUrl+url.CreateTask, &req.CreateTaskRequest{ClientKey: c.ClientKey, Task: task, SoftID: c.SoftID})
 	if err != nil {
@@ -48,6 +49,7 @@ func (c *Client) CreateImageToText(task *req.ImageToTextTaskRequest) (createTask
 }
 
 // 创建识别任务-NoCaptchaTaskProxyless : reCaptcha V2 协议接口
+// refs: https://yescaptcha.atlassian.net/wiki/spaces/YESCAPTCHA/pages/229796/NoCaptchaTaskProxyless+reCaptcha+V2
 func (c *Client) CreateNoCaptchaTaskProxyless(task *req.NoCaptchaTaskProxylessRequest) (createTaskResponse res.CreateTaskResponse, err error) {
 	resBytes, err := c.Post(c.BaseUrl+url.CreateTask, &req.CreateTaskRequest{ClientKey: c.ClientKey, Task: task, SoftID: c.SoftID})
 	if err != nil {
@@ -58,6 +60,7 @@ func (c *Client) CreateNoCaptchaTaskProxyless(task *req.NoCaptchaTaskProxylessRe
 }
 
 // 创建识别任务-RecaptchaV3TaskProxyless: reCaptcha V3 协议接口
+// refs: https://yescaptcha.atlassian.net/wiki/spaces/YESCAPTCHA/pages/655381/RecaptchaV3TaskProxyless+reCaptcha+V3
 func (c *Client) CreateRecaptchaV3TaskProxyless(task *req.RecaptchaV3TaskProxylessRequest) (createTaskResponse res.CreateTaskResponse, err error) {
 	resBytes, err := c.Post(c.BaseUrl+url.CreateTask, &req.CreateTaskRequest{ClientKey: c.ClientKey, Task: task, SoftID: c.SoftID})
 	if err != nil {
@@ -68,6 +71,7 @@ func (c *Client) CreateRecaptchaV3TaskProxyless(task *req.RecaptchaV3TaskProxyle
 }
 
 // 创建识别任务-RecaptchaV2EnterpriseTaskProxyless: 企业版 reCaptcha V2
+// refs: https://yescaptcha.atlassian.net/wiki/spaces/YESCAPTCHA/pages/2916435/RecaptchaV2EnterpriseTaskProxyless+reCaptcha+V2
 func (c *Client) CreateRecaptchaV2EnterpriseTaskProxyless(task *req.RecaptchaV2EnterpriseTaskProxylessRequest) (createTaskResponse res.CreateTaskResponse, err error) {
 	resBytes, err := c.Post(c.BaseUrl+url.CreateTask, &req.CreateTaskRequest{ClientKey: c.ClientKey, Task: task, SoftID: c.SoftID})
 	if err != nil {
@@ -78,6 +82,7 @@ func (c *Client) CreateRecaptchaV2EnterpriseTaskProxyless(task *req.RecaptchaV2E
 }
 
 // 创建识别任务-ReCaptchaV2Classification: reCaptcha V2 图像识别
+// refs: https://yescaptcha.atlassian.net/wiki/spaces/YESCAPTCHA/pages/18055169/ReCaptchaV2Classification+reCaptcha+V2
 func (c *Client) CreateReCaptchaV2Classification(task *req.ReCaptchaV2ClassificationRequest) (createTaskResponse res.CreateTaskResponse, err error) {
 	resBytes, err := c.Post(c.BaseUrl+url.CreateTask, &req.CreateTaskRequest{ClientKey: c.ClientKey, Task: task, SoftID: c.SoftID})
 	if err != nil {
@@ -88,6 +93,7 @@ func (c *Client) CreateReCaptchaV2Classification(task *req.ReCaptchaV2Classifica
 }
 
 // 创建识别任务-HCaptchaTaskProxyless : HCaptcha 协议接口
+// refs: https://yescaptcha.atlassian.net/wiki/spaces/YESCAPTCHA/pages/7929858/HCaptchaTaskProxyless+HCaptcha
 func (c *Client) CreateHCaptchaTaskProxyless(task *req.HCaptchaTaskProxylessRequest) (createTaskResponse res.CreateTaskResponse, err error) {
 	resBytes, err := c.Post(c.BaseUrl+url.CreateTask, &req.CreateTaskRequest{ClientKey: c.ClientKey, Task: task, SoftID: c.SoftID})
 	if err != nil {
@@ -98,6 +104,7 @@ func (c *Client) CreateHCaptchaTaskProxyless(task *req.HCaptchaTaskProxylessRequ
 }
 
 // 创建识别任务-HCaptchaClassification: Hcaptcha图像识别
+// refs: https://yescaptcha.atlassian.net/wiki/spaces/YESCAPTCHA/pages/24543233/HCaptchaClassification+Hcaptcha
 func (c *Client) CreateHCaptchaClassification(task *req.HCaptchaClassificationRequest) (createTaskResponse res.CreateTaskResponse, err error) {
 	resBytes, err := c.Post(c.BaseUrl+url.CreateTask, &req.CreateTaskRequest{ClientKey: c.ClientKey, Task: task, SoftID: c.SoftID})
 	if err != nil {
@@ -108,6 +115,7 @@ func (c *Client) CreateHCaptchaClassification(task *req.HCaptchaClassificationRe
 }
 
 // 创建识别任务-FuncaptchaTaskProxyless : Funcaptcha 协议接口
+// refs: https://yescaptcha.atlassian.net/wiki/spaces/YESCAPTCHA/pages/17825793/FuncaptchaTaskProxyless+Funcaptcha
 func (c *Client) CreateFuncaptchaTaskProxyless(task *req.FuncaptchaTaskProxylessRequest) (createTaskResponse res.CreateTaskResponse, err error) {
 	resBytes, err := c.Post(c.BaseUrl+url.CreateTask, &req.CreateTaskRequest{ClientKey: c.ClientKey, Task: task, SoftID: c.SoftID})
 	if err != nil {
@@ -118,6 +126,7 @@ func (c *Client) CreateFuncaptchaTaskProxyless(task *req.FuncaptchaTaskProxyless
 }
 
 // 创建识别任务-FunCaptchaClassification: Funcaptcha 图像识别
+// refs: https://yescaptcha.atlassian.net/wiki/spaces/YESCAPTCHA/pages/34209793/FunCaptchaClassification+Funcaptcha
 func (c *Client) CreateFunCaptchaClassification(task *req.FunCaptchaClassificationRequest) (createTaskResponse res.CreateTaskResponse, err error) {
 	resBytes, err := c.Post(c.BaseUrl+url.CreateTask, &req.CreateTaskRequest{ClientKey: c.ClientKey, Task: task, SoftID: c.SoftID})
 	if err != nil {
@@ -128,6 +137,7 @@ func (c *Client) CreateFunCaptchaClassification(task *req.FunCaptchaClassificati
 }
 
 // 创建识别任务-TurnstileTaskProxyless: CloudflareTurnstile协议接口
+// refs: https://yescaptcha.atlassian.net/wiki/spaces/YESCAPTCHA/pages/61734913/TurnstileTaskProxyless+CloudflareTurnstile
 func (c *Client) CreateTurnstileTaskProxyless(task *req.TurnstileTaskProxylessRequest) (createTaskResponse res.CreateTaskResponse, err error) {
 	resBytes, err := c.Post(c.BaseUrl+url.CreateTask, &req.CreateTaskRequest{ClientKey: c.ClientKey, Task: task, SoftID: c.SoftID})
 	if err != nil {
